@@ -87,8 +87,9 @@
 \end{center}
 
 \begin{tcolorbox}
-Matrix multiplication is a foundational linear algebra operation, used computationally in machine learning, computer graphics, and more. The efficiency of its implementation can have a profound impact on overall application performance. This research paper presents a theoretical framework to design an experiment, which will investigate the impact of programming language selection on the efficiency of matrix multiplication. We conduct a rigorous, first-principles analysis of two canonical algorithms: the naive (schoolbook) method and Strassen’s divide-and-conquer algorithm. For each, we derive the time and space complexity from their recurrence relations (in various notations for rigor) and formulate precise, testable hypotheses for each selected programming language. We then outline a comprehensive research methodology to empirically validate these hypotheses across five distinct programming languages: C++, Rust, Java, Python, and JavaScript. This methodology is designed to isolate the performance characteristics inherent to each language's execution strategy, ranging from ahead-of-time (AOT) native compilation and manual memory management (C++ and Rust) to just-in-time (JIT) compilation and automatic garbage collection (Java and JavaScript), and interpretation (Python). By contrasting the theoretical complexities with a structured experimental plan, this work aims to quantify the performance trade-offs associated with different levels of programming abstraction and runtime environments for a computationally intensive kernel, while illustrating how algorithms more complex for humans may be handled efficiently by computers.
+Matrix multiplication is a foundational linear algebra operation, used computationally in machine learning, computer graphics, and various other applications. The efficiency of its implementation can have a profound impact on overall application performance. This research paper presents a theoretical framework to design an experiment, which will investigate the impact of programming language selection on the efficiency of matrix multiplication. We conduct a rigorous, first-principles analysis of two canonical algorithms: the naive (schoolbook) method and Strassen’s divide-and-conquer algorithm. For each, we derive the time and space complexity from their recurrence relations (in various notations for rigor) and formulate precise, testable hypotheses for each selected programming language. We then outline a comprehensive research methodology to empirically validate these hypotheses across five distinct programming languages: C++, Rust, Java, Python, and JavaScript. This methodology is designed to isolate the performance characteristics inherent to each language’s execution strategy – ranging from ahead-of-time (AOT) native compilation and manual memory management (C++ and Rust) to just-in-time (JIT) compilation and automatic garbage collection (Java and JavaScript), and interpretation (Python). By contrasting the theoretical complexities with a structured experimental plan, this work aims to quantify the performance trade-offs associated with different levels of programming abstraction and runtime environments for a computationally intensive kernel, while illustrating how algorithms, which are more complex for humans, may be handled efficiently by computers.
 \end{tcolorbox}
+\newpage
 
 \vspace{1.5em}
 \tableofcontents
@@ -365,9 +366,11 @@ In this study, the following variables are defined to operationalize the relatio
 The programming language and algorithm used for the matrix multiplication implementation. Five categorical levels are considered: C++, Rust, Java, Python, and JavaScript. This variable represents differences in compilation model, memory management, and runtime execution strategies.
 
 \textbf{Dependent Variables:}  
-1. \textit{Execution Time} — The total time (in nanoseconds for extra precision) required to complete the matrix multiplication for varying matrix dimensions \(n\).  
-2. \textit{Memory Usage} — The peak resident memory consumption during execution, measured in megabytes.  
-3. \textit{Scaling Behavior} — The empirical exponent \(p\) in the observed relation \(T(n) \propto n^p\), derived from log–log regression of runtime data.
+\begin{enumerate}
+    \item \textbf{Execution Time —} The total time (in nanoseconds for extra precision) required to complete the matrix multiplication for varying matrix dimensions \(n\).  
+    \item \textbf{Memory Usage —} The peak resident memory consumption during execution, measured in megabytes.  
+    \item \textbf{Scaling Behavior —} The empirical exponent \(p\) in the observed relation \(T(n) \propto n^p\), derived from log–log regression of runtime data.
+\end{enumerate}
 
 \textbf{Controlled Variables:}  
 Hardware configuration, operating system, compiler/runtime version, and algorithmic implementation (naive or Strassen) are held constant to isolate the effect of the independent variable.
